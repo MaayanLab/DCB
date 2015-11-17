@@ -1,0 +1,205 @@
+@import url("reset.css");
+@import url("LINCS_NIH.css");
+@import url("buttons-min.css");
+
+
+
+#toggleTextHead
+				{
+					font-weight:700;
+					padding-right:5px;
+				}
+
+
+				#content
+				{
+					font-size:11px;
+
+				}
+
+
+#cellLineTopText{
+	text-align: left;
+	margin-left: 4em;
+}
+
+.cluster-label{
+	font-size: 1.1em;
+	font-weight:bold;
+	color:rgb(223, 117, 20);
+	opacity: 1
+}
+
+
+
+#LCBTitle{
+	font-size: 2em;
+	margin-left: 2em;
+	padding: 0.3em;
+	font-weight: bold;
+	color: #626365;
+	margin-bottom: 0.5em;
+	padding-top: 0.5em;
+	text-align:left;
+}
+
+.resetButton{
+	background: rgb(223, 117, 20);
+	color: white;
+	font-size:1.2em;
+}
+
+.downloadButton{
+	font-size:1.2em;
+	background: rgb(223, 117, 20);
+	color: white;
+	/*background: rgb(204, 55, 97);*/
+}
+
+
+.data-selection{
+margin-left: 31em;
+padding-top: 0.3em;
+display: inline-block;
+vertical-align: 20%;	
+}
+
+
+input[type=radio].css-checkbox {
+							display:none;
+						}
+
+						input[type=radio].css-checkbox + label.css-label {
+							padding-left:19px;
+							height:14px; 
+							display:inline-block;
+							line-height:14px;
+							background-repeat:no-repeat;
+							background-position: 0 0;
+							font-size:14px;
+							vertical-align:middle;
+							cursor:pointer;
+
+						}
+
+						input[type=radio].css-checkbox:checked + label.css-label {
+							background-position: 0 -14px;
+						}
+						label.css-label {
+				background-image:url(images/csscheckbox_f857374e11c3e3492c504a82faafff0e.png);
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+#drugCanvasButtons{
+	margin-top: 0.4em
+}
+
+
+#drugPerturbationCanvasButtonLabel, #drugStructureCanvasButtonLabel, #drugTargetCanvasButtonLabel{
+	margin-left:0.7em;
+}
+
+#cellLineCanvasButtons{
+	width:400px;
+}
+
+
+.cellLineCanvasViewLabel{
+	margin-left: 4em;
+}
+
+#pageBody{
+	height:510px;
+}
+
+#cellLineCanvasLegend{
+	margin-top: 0.5em;
+	width:400px;
+}
+
+
+.axis path,
+			.axis line {
+				fill: none;
+				stroke: black;
+				shape-rendering: auto;
+			}
+			
+			.axis text {
+				font-family: sans-serif;
+				font-size: 11px;
+			}
+div#drugCanvasLegend{
+	margin-top: 0.4em;
+}
+
+div#holdElements
+{		
+	width: inherit;
+	height: 30.92em;
+	/*margin-top: 3.84em;*/
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #FFFFFF;
+	text-align: center;
+	padding-top: 0.7em;
+	padding-bottom: 4em;
+
+}
+
+ul#left, div#right{
+	width:17.75em;
+
+
+}
+
+ul#left{
+	text-align:center;
+}
+
+div#middle{
+	width:43em;
+}
+
+.contain{
+	height:30.92em;
+	vertical-align:top;
+}
+
+.center{
+	text-align:center;
+}
+.inlineblock{
+	display:inline-block;
+
+}
+
+div#legends{
+	background-color:#DDD;
+	height:27em;
+}
+
+div#cancerView{
+	margin-right:0.5em;
+}
+
+ul#left li, ul#right li{
+	margin-bottom:2em;
+}
+
+strong{
+	font-weight: 700;
+}
+
+div#zoomExplain{
+	margin-top:10px;
+}
+
+#download{
+	margin-top:2em;	
+}
+

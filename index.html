@@ -1,0 +1,227 @@
+<html>
+
+<head >
+	
+	
+	
+	<title>
+		  Drug/Cell-line Browser	</title>
+
+
+<meta charset="UTF-8">
+		  <title>HMS Cell-Line to Drug Browser</title>
+		  <link rel="shortcut icon" href="CSS/favicon.ico" type="image/x-icon">
+			<link rel="icon" href="CSS/favicon.ico" type="image/x-icon">
+
+			<link rel="stylesheet" type="text/css" href="CSS/main-built.css" />
+			<script type="text/javascript" src='html5slider.js'></script>
+			<!-- // <script src="main-built.js"></script> -->
+			<script  src="main-built.js"></script>
+
+
+ </head>
+ 
+ <body class="home page page-id-6 page-template page-template-page-home-php" style="">
+	<div id="header-wrap">
+		<div id="header">
+			<h1><a href="http://www.lincsproject.org/">NIH LINCS Program</a></h1>
+			<span class="tagline"></span>
+		
+			<div id="logo-nihlincs"><a href="http://www.lincsproject.org/">
+			  <span>Library of Integrated Network-Based Cellular Signatures</span>
+			</a></div>
+	
+		</div>
+	</div><!-- end header-wrap -->
+
+<div id="pagebody-wrap">
+	
+		<div id="pagebody">
+
+		<h1 id='LCBTitle' style="display:inline-block"> Drug/Cell-line Browser </h1>
+
+<div class="data-selection">
+	<span style='font-weight:bold'>Select Dataset:</span>
+	<select id='dataSelection'>
+		<option value='dataProcessing_v1.1.js'>MGH/Sanger Dataset</option>
+		<option value='ccle.js'>CCLE Dataset</option>
+		<option value='heiser.js'>Heiser Dataset</option>
+	</select>
+</div>
+<div id = "holdElements">
+	
+
+		<ul id="left" class="contain inlineblock">
+
+		
+				<form>
+
+				<br>
+						<li>
+							<div id="highlightCancer">
+				<form>
+				<select id="cancer" style="font-size:1.1em">
+				</select>
+				<br />
+				</form>
+			</div>	
+							
+
+						</li>
+
+
+						<li>
+							<br />
+							<span id="toggleTextHead">Label Cell-lines:</span>
+							<br />
+							<br />
+							<select id="textToggle" title="Toggle the visibility of cell-line labels.">
+							<option value="white">White</option>
+							<option value="black">Black</option>
+							<option value="none" selected="selected">No Labels</option>
+							</select>
+
+
+						</li>
+
+						<li>
+						<br />
+							<input id="clearButton" class="pure-button resetButton" type="button" value="Reset" style = "padding-left:10px; padding-right:10px" />
+						</li>
+
+							
+						<li>
+							<br />
+							<strong>Show <span id="filterValue">25</span> % of <br /><span id="toggleFilter">Associated Cell-lines</span>:</strong>
+							<br />
+							<input id="filterCellLine" type="range" min="0" max="100" step="1" value="25" title="Filters the number of cell lines that are shown on the canvas after selecting a drug. The filter affects the number of cell lines associated with the drug for cancer enrichment analaysis."/>
+						</li>
+
+						<li>
+						<br/>
+						<br/>
+							<a href="data/sourceFiles.zip" class="resetButton pure-button">Source Data</a>
+						</li>
+
+
+				</form>
+
+		</ul>
+
+		<div id="middle" class="contain inlineblock">
+				<div id='cellLineTopText'>Cell-line Canvas: clustered by <span id='cellLineCanvasClusteringLabel' class="cluster-label">tissue</span></div>
+
+				<div id="cancerView" class="inlineblock">
+					<!--Cancer Canvas goes here.-->
+				</div>
+
+				<div id="cellLineLegend" class="inlineblock">
+					
+				</div>
+
+				<div id="cellLineCanvasButtons">
+				 <input id="cellLineCanvasCategoryView" checked="checked" type="radio" name="cellLineCanvasViewSwitch" title="Sensitive Score View" class="css-checkbox">  
+   				 <label for="cellLineCanvasCategoryView"  class="css-label" title="Sensitive Score View"></label>  
+    			<input id="cellLineCanvasSensitiveScoreView" type="radio" name="cellLineCanvasViewSwitch" class="css-checkbox">  
+    			<label id="cellLineCanvasSensitiveScoreViewLabel" for="cellLineCanvasSensitiveScoreView" class="css-label cellLineCanvasViewLabel"></label>  
+    			<input id="cellLineCanvasGeneExpressionView" type="radio" name="cellLineCanvasViewSwitch" class="css-checkbox">  
+    			<label id="cellLineCanvasGeneExpressionViewLabel" for="cellLineCanvasGeneExpressionView" class="css-label cellLineCanvasViewLabel"></label> 
+    			<input id="cellLineCanvasMutationView" type="radio" name="cellLineCanvasViewSwitch" class="css-checkbox">  
+    			<label id="cellLineCanvasMutationViewLabel" for="cellLineCanvasMutationView" class="css-label cellLineCanvasViewLabel"></label>  
+			</div>
+
+<!-- 
+				<div id="zoomExplain" class="center">
+					Use the Mouse Wheel to zoom in 
+					and out of the canvas.
+				</div> -->
+
+				<div id="cellLineCanvasLegend"></div>
+
+		</div>
+		
+
+		<div id="right" class="contain inlineblock">
+		<div>
+							<select id="selectDrug1" title="Select a drug to display the cell lines affected by the drug. Circle brightness corresponds to the cell line's sensitivity to that drug.">
+							</select>
+		</div>
+							<br />
+
+			<div id="drugCanvasHolder">
+				<div>Drug Canvas: Clustered by
+				<div id="drugCanvasClusteringLabel" class='cluster-label'>efficacy to cell-lines</div></div>
+				
+				<div id="drugCanvas">
+				</div>
+			</div>
+			<div id="drugCanvasButtons">
+				 <input id="drugCanvasSensitiveScoreView" checked="checked" type="radio" name="drugCanvasViewSwitch" title="Sensitive Score View" class="css-checkbox">  
+   				 <label for="drugCanvasSensitiveScoreView"  class="css-label" title="Sensitive Score View"></label>  
+    			<input id="drugCanvasStructureView" type="radio" name="drugCanvasViewSwitch" class="css-checkbox">  
+    			<label id="drugStructureCanvasButtonLabel"for="drugCanvasStructureView" class="css-label"></label>
+    			<input id="drugCanvasTargetView" type="radio" name="drugCanvasViewSwitch" class="css-checkbox">  
+    			<label id="drugTargetCanvasButtonLabel" for="drugCanvasTargetView" class="css-label"></label> 
+    			<input id="drugCanvasPerturbationView" type="radio" name="drugCanvasViewSwitch" class="css-checkbox">  
+    			<label id="drugPerturbationCanvasButtonLabel" for="drugCanvasPerturbationView" class="css-label"></label>       
+			</div>
+			<div>
+			<div id="drugCanvasLegend">
+
+			</div>
+			</div>
+
+			
+
+			<br / >
+
+			<div id="drugFilter">
+				<strong>Show <span id="indicatorDrugFilter">25</span> % of <br />Associated Drugs</strong><br />
+				<br />
+				<input type="range" id="filterDrug" min="0" max="100" step="1" value="25"></input>
+			</div>
+
+			<button id="download" class="downloadButton pure-button">Download Results</button>
+
+
+		</div>
+
+
+	</div><!--end holdelements-->
+		</div><!-- end pagebody -->
+		
+		</div><!-- end pagebody-wrap -->
+
+
+		<div id="footer-wrap">
+		<div id="footer">
+			Copyright <span id='currentYear'>2014</span>. The LINCS Canvas Browser is being developed in collaboration between the <a href="http://icahn.mssm.edu/research/labs/maayan-laboratory">Ma'ayan Lab</a> at the <a href="http://icahn.mssm.edu/">Icahn School of Medicine at Mount Sinai</a> and the <a href="http://www.massgeneral.org/cancer/research/researchlab.aspx?id=1408">Benes Lab</a> at <a href="http://www.massgeneral.org/">Massachusetts General Hospital</a> as a part of the <a href="http://commonfund.nih.gov/lincs/" target="_blank">LINCS NIH Common Fund</a>.
+    </div>
+	</div><!-- end footer-wrap -->
+
+
+	</body>
+<script type="text/javascript">
+	//  for year at footer
+document.getElementById('currentYear').innerText = new Date().getFullYear();
+
+</script>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53ac5ecf4a51561e"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-6277639-19', 'maayanlab.net');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</html>
